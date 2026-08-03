@@ -5,21 +5,21 @@
 class GitSnag < Formula
   desc "A TUI to snag your dead git worktrees"
   homepage "https://github.com/kurabuchi-kentaro/git-snag"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.0/git-snag_0.1.0_darwin_amd64.tar.gz"
-      sha256 "2940919c7f22bbae4e8fad8dea21644117c61b817b27fa175b9d0f1bd7d339d6"
+      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.1/git-snag_0.1.1_darwin_amd64.tar.gz"
+      sha256 "7ab73d5e21d95787887686aadb86c191bb4475fc28862ea37417df564685413b"
 
       define_method(:install) do
         bin.install "git-snag"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.0/git-snag_0.1.0_darwin_arm64.tar.gz"
-      sha256 "07a86f4df2a2fdaac9a31c59c15dc9083728dc731fff8d00b38003b3b36a46af"
+      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.1/git-snag_0.1.1_darwin_arm64.tar.gz"
+      sha256 "27a013ede3d9616d7d02a0a01dfd2b17dd922aac71d1f0c3b54910a60f0db8c2"
 
       define_method(:install) do
         bin.install "git-snag"
@@ -29,19 +29,33 @@ class GitSnag < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.0/git-snag_0.1.0_linux_amd64.tar.gz"
-      sha256 "94e90bafa6bb51abe362c5f74a56bc39b1f5a34c57c39c233d7b13c0fca4bb82"
+      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.1/git-snag_0.1.1_linux_amd64.tar.gz"
+      sha256 "bbc87a188558b7cd2e010c218c86db5b6cc5906d59efdd16c7698a2145427dc7"
       define_method(:install) do
         bin.install "git-snag"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.0/git-snag_0.1.0_linux_arm64.tar.gz"
-      sha256 "00f0749ca6beab45acfeb3ef6029cb9905d8ff3026866fcddc42c109b604909e"
+      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.1/git-snag_0.1.1_linux_arm64.tar.gz"
+      sha256 "99c540812c2ba59406876c9252d3382a495a28a4ec96b64e79a0bac56454954f"
       define_method(:install) do
         bin.install "git-snag"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      git-snag's status tags use Nerd Font glyphs by default. If your
+      terminal font isn't patched, install one from https://www.nerdfonts.com
+      and set it in your terminal.
+
+      No Nerd Font? Fall back to plain Unicode glyphs, either per run:
+        git-snag --icons unicode
+      or permanently in ~/.config/git-snag/config.yaml:
+        ui:
+          icons: unicode
+    EOS
   end
 
   test do
