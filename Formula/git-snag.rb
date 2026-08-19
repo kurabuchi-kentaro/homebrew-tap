@@ -5,21 +5,21 @@
 class GitSnag < Formula
   desc "A TUI to snag your dead git worktrees"
   homepage "https://github.com/kurabuchi-kentaro/git-snag"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.1/git-snag_0.1.1_darwin_amd64.tar.gz"
-      sha256 "7ab73d5e21d95787887686aadb86c191bb4475fc28862ea37417df564685413b"
+      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.2/git-snag_0.1.2_darwin_amd64.tar.gz"
+      sha256 "5c64de4251ea920c006aed95cb9d6923d3f8c09102a09c35bc4d68879627d32d"
 
       define_method(:install) do
         bin.install "git-snag"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.1/git-snag_0.1.1_darwin_arm64.tar.gz"
-      sha256 "27a013ede3d9616d7d02a0a01dfd2b17dd922aac71d1f0c3b54910a60f0db8c2"
+      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.2/git-snag_0.1.2_darwin_arm64.tar.gz"
+      sha256 "d8fc5c6a6523b72b4b50489745a7f80c9ef61f7fd796d9516f6cac096c5b3ab4"
 
       define_method(:install) do
         bin.install "git-snag"
@@ -29,15 +29,15 @@ class GitSnag < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.1/git-snag_0.1.1_linux_amd64.tar.gz"
-      sha256 "bbc87a188558b7cd2e010c218c86db5b6cc5906d59efdd16c7698a2145427dc7"
+      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.2/git-snag_0.1.2_linux_amd64.tar.gz"
+      sha256 "18eaca0140f539595a1d6dba8575fae0d342a0361c0173be55443c2fcbbe22ec"
       define_method(:install) do
         bin.install "git-snag"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.1/git-snag_0.1.1_linux_arm64.tar.gz"
-      sha256 "99c540812c2ba59406876c9252d3382a495a28a4ec96b64e79a0bac56454954f"
+      url "https://github.com/kurabuchi-kentaro/git-snag/releases/download/v0.1.2/git-snag_0.1.2_linux_arm64.tar.gz"
+      sha256 "9f85031dd9f7df9b5e660e30236071945eebefbfbf6b62fe5b60f5c4cb156a2c"
       define_method(:install) do
         bin.install "git-snag"
       end
